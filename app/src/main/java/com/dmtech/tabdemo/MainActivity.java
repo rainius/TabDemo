@@ -24,9 +24,9 @@ MainActivity extends AppCompatActivity {
 
         // 增加代码判断登录状态:
         if (TextUtils.isEmpty(Utils.getUserEmail(this))) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-            return;
+//            Intent intent = new Intent(this, LoginActivity.class);
+//            startActivity(intent);
+//            return;
         }
     }
     @Override
@@ -50,8 +50,8 @@ MainActivity extends AppCompatActivity {
 
     private ProductListFragment mListFragment = new ProductListFragment();
     private ProductGridFragment mGridFragment = new ProductGridFragment();
-    private ProductStaggeredGridFragment mStaggeredGridFragment = new ProductStaggeredGridFragment();
-
+//    private ProductStaggeredGridFragment mStaggeredGridFragment = new ProductStaggeredGridFragment();
+    private HomeFragment mHomeFragment = new HomeFragment();
     private Fragment currentFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -61,7 +61,7 @@ MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_staggered:
-                    switchFragment(mStaggeredGridFragment).commit();
+                    switchFragment(mHomeFragment).commit();
                     return true;
                 case R.id.navigation_grid:
                     switchFragment(mGridFragment).commit();
