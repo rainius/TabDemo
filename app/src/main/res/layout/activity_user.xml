@@ -11,7 +11,15 @@
         android:layout_height="wrap_content"
         android:titleTextColor="#ffffff"
         android:title="@string/app_name"
-        android:background="@color/colorPrimary"></Toolbar>
+        android:background="@color/colorPrimary">
+
+        <android.support.v7.widget.ActionMenuView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/menu_view"
+            android:layout_gravity="right"/>
+
+    </Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
