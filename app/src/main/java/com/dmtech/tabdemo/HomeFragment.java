@@ -36,9 +36,12 @@ public class HomeFragment extends Fragment {
         mTabs = view.findViewById(R.id.tabs);
         mViewPager = view.findViewById(R.id.viewpager);
 
+        ProductStaggeredGridFragment focusFragmen = new ProductStaggeredGridFragment();
+
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(new ProductStaggeredGridFragment());
-        fragments.add(new ProductStaggeredGridFragment());
+
+        fragments.add(ProductStaggeredGridFragment.asFocus());
+        fragments.add(ProductStaggeredGridFragment.asDiscover());
         String [] titles = new String[] {
                 getString(R.string.home_tab_title_1),
                 getString(R.string.home_tab_title_2),

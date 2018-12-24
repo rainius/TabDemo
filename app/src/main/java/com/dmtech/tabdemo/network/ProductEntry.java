@@ -43,8 +43,9 @@ public class ProductEntry {
     /**
      * Loads a raw JSON at R.raw.products and converts it into a list of ProductEntry objects
      */
-    public static List<ProductEntry> initProductEntryList(Resources resources) {
-        InputStream inputStream = resources.openRawResource(R.raw.products);
+    public static List<ProductEntry> initProductEntryList(int resId, Resources resources) {
+//        InputStream inputStream = resources.openRawResource(R.raw.products);
+        InputStream inputStream = resources.openRawResource(resId);
         Writer writer = new StringWriter();
         char[] buffer = new char[1024];
         try {

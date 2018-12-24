@@ -22,6 +22,8 @@ import com.dmtech.tabdemo.network.ProductEntry;
 
 public class ProductListFragment extends Fragment implements ActionMenuView.OnMenuItemClickListener {
 
+
+
     private Handler handler = new Handler();
     private View mWaitingView;
 
