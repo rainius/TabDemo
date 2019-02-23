@@ -78,6 +78,20 @@ public class ProductStaggeredGridFragment extends Fragment {
         }
         ProductCardRecyclerViewAdapter adapter = new ProductCardRecyclerViewAdapter(
                 ProductEntry.initProductEntryList(id, getResources()));
+
+        adapter.setOnItemClickListener(new ProductCardRecyclerViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(final ProductEntry product) {
+                if (isAdded()) {
+                    Intent intent = new Intent(getActivity(), Content.class);
+                    // 此处为intent设置参数指明打开的是哪个product
+                    // 需要
+                    intent.putExtra("productId", 0); // 用你真实的产品id替换这个0
+                    startActivity(intent);
+                }
+            }
+        });
+
         recyclerView.setAdapter(adapter);
         int largePadding = getResources().getDimensionPixelSize(R.dimen.shr_product_grid_spacing);
         int smallPadding = getResources().getDimensionPixelSize(R.dimen.shr_product_grid_spacing_small);

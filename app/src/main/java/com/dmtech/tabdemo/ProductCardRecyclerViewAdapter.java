@@ -21,8 +21,18 @@ import java.util.List;
  */
 public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<ProductCardViewHolder> {
 
+    public interface OnItemClickListener {
+        void onItemClick(final ProductEntry product);
+    }
+
     private List<ProductEntry> productList;
     private ImageRequester imageRequester;
+
+    private OnItemClickListener onItemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
 
     ProductCardRecyclerViewAdapter(List<ProductEntry> productList) {
         this.productList = productList;
@@ -37,12 +47,21 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductCardViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProductCardViewHolder holder, final int position) {
         if (productList != null && position < productList.size()) {
             ProductEntry product = productList.get(position);
             holder.productTitle.setText(product.title);
             holder.productPrice.setText(product.price);
             imageRequester.setImageFromUrl(holder.productImage, product.url);
+
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onItemClickListener != null) {
+                        onItemClickListener.onItemClick(productList.get(position));
+                    }
+                }
+            });
         }
 
     }

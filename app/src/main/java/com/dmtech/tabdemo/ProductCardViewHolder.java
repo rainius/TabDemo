@@ -18,11 +18,11 @@ public class ProductCardViewHolder extends RecyclerView.ViewHolder {
         productImage = itemView.findViewById(R.id.product_image);
         productTitle = itemView.findViewById(R.id.product_title);
         productPrice = itemView.findViewById(R.id.product_price);
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onReadNote();
-            }
-        });
+//        itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onReadNote();
+//            }
+//        });
     }
     }

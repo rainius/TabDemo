@@ -30,6 +30,8 @@
             android:name=".UserInfoActivity"></activity>
         <activity
             android:name=".Camera"></activity>
+        <activity
+            android:name=".Content"></activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.dmtech.tabdemo.fileprovider"
