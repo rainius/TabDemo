@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:titleTextColor="#ffffff"
-        android:title="@string/app_name"
         android:background="@color/colorPrimary">
 
         <android.support.v7.widget.ActionMenuView
@@ -58,13 +57,13 @@
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="个性签名：" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="电子邮箱：" />
 
     </LinearLayout>

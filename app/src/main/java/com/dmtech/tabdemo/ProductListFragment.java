@@ -1,5 +1,6 @@
 package com.dmtech.tabdemo;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,8 +22,6 @@ import android.widget.Toolbar;
 import com.dmtech.tabdemo.network.ProductEntry;
 
 public class ProductListFragment extends Fragment implements ActionMenuView.OnMenuItemClickListener {
-
-
 
     private Handler handler = new Handler();
     private View mWaitingView;
@@ -53,7 +52,8 @@ public class ProductListFragment extends Fragment implements ActionMenuView.OnMe
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item_user:
-                Toast.makeText(getContext(), "User Info", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(getActivity(), UserInfoActivity.class);
+                startActivity(intent);
                 return true;
         }
         return false;

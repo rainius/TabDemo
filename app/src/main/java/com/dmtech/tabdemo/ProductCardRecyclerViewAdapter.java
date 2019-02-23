@@ -1,7 +1,11 @@
 package com.dmtech.tabdemo;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +44,7 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
             holder.productPrice.setText(product.price);
             imageRequester.setImageFromUrl(holder.productImage, product.url);
         }
+
     }
 
     @Override

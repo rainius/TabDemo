@@ -345,7 +345,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String rsp = response.body().string();
-                Log.d("ZJ", "login: " + rsp);
+                Log.d("SXR", "login: " + rsp);
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {

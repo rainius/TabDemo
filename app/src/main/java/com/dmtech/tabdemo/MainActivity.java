@@ -7,15 +7,18 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.dmtech.tabdemo.Utils.Utils;
 
-public class
-MainActivity extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity {
 
 
     @Override
@@ -24,33 +27,17 @@ MainActivity extends AppCompatActivity {
 
         // 增加代码判断登录状态:
         if (TextUtils.isEmpty(Utils.getUserEmail(this))) {
-//            Intent intent = new Intent(this, LoginActivity.class);
-//            startActivity(intent);
-//            return;
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            return;
         }
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_note_list, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-
-            case R.id.menu_item_user:
-                Intent intent = new Intent(this, UserInfoActivity.class);
-                startActivity(intent);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 
     private ProductListFragment mListFragment = new ProductListFragment();
     private ProductGridFragment mGridFragment = new ProductGridFragment();
-//    private ProductStaggeredGridFragment mStaggeredGridFragment = new ProductStaggeredGridFragment();
+    //private ProductStaggeredGridFragment mStaggeredGridFragment = new ProductStaggeredGridFragment();
+
     private HomeFragment mHomeFragment = new HomeFragment();
     private Fragment currentFragment;
 
@@ -64,7 +51,8 @@ MainActivity extends AppCompatActivity {
                     switchFragment(mHomeFragment).commit();
                     return true;
                 case R.id.navigation_grid:
-                    switchFragment(mGridFragment).commit();
+                    Intent intent = new Intent(MainActivity.this, Camera.class);
+                    startActivity(intent);
                     return true;
                 case R.id.navigation_list:
                     switchFragment(mListFragment).commit();
@@ -74,12 +62,20 @@ MainActivity extends AppCompatActivity {
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+
+
+
+
+
+    BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         navigation.setSelectedItemId(R.id.navigation_staggered);

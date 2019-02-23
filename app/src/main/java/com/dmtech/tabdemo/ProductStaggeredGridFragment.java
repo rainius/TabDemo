@@ -1,5 +1,6 @@
 package com.dmtech.tabdemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -46,6 +47,15 @@ public class ProductStaggeredGridFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
+
+
+    private void onReadNote() {
+        // 启动阅读页面
+        Intent intent = new Intent(getActivity(), Content.class);
+        startActivity(intent);
+    }
+
+
 
     @Override
     public View onCreateView(
